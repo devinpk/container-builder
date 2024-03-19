@@ -22,9 +22,6 @@ RUN --mount=type=bind,source=./percona-xtrabackup,target=/build/percona-xtraback
     make -j$(nproc --all) && \
     strip ./bin/x*
 
-#RUN --mount=type=cache,target=/build/output \
-#    mkdir /build/bin/ && cp -f /build/output/bin/x* /build/bin/
-
 
 FROM debian:11-slim
 

@@ -14,7 +14,7 @@ liblz4-tool liblz4-1 liblz4-dev libzstd1
 RUN --mount=type=bind,source=./percona-xtrabackup,target=/build/percona-xtrabackup \
     --mount=type=cache,target=/build/boost \
     mkdir -p /build/output && cd /build/output && \
-    cmake -DWITH_DEBUG=0 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/build/boost -DBUILD_CONFIG=xtrabackup_release -DWITH_MAN_PAGES=0 /build/percona-xtrabackup
+    cmake -DWITH_DEBUG=0 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/build/boost -DBUILD_CONFIG=xtrabackup_release -DCMAKE_BUILD_TYPE=RELEASE -DWITH_MAN_PAGES=0 /build/percona-xtrabackup
 
 RUN --mount=type=bind,source=./percona-xtrabackup,target=/build/percona-xtrabackup \
     --mount=type=cache,target=/build/boost \

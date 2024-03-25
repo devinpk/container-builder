@@ -26,7 +26,7 @@ RUN --mount=type=bind,source=./percona-xtrabackup,target=/build/percona-xtraback
 FROM debian:11-slim
 
 RUN apt update && apt install -y libaio1 libprocps8 libev4 libcurl4 libzstd1 && apt clean && \
-    apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 COPY --from=builder /build/output/bin/x* /usr/bin/
 
 ENTRYPOINT ["/usr/bin/xtrabackup"]
